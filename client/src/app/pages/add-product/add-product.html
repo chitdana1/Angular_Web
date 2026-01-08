@@ -1,0 +1,18 @@
+<div class="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
+  <h2 class="text-2xl font-bold mb-6">เพิ่มสินค้าใหม่</h2>
+
+  <div class="flex flex-col gap-4">
+    <input [(ngModel)]="name" placeholder="ชื่อสินค้า" class="p-2 border rounded">
+    <textarea [(ngModel)]="description" placeholder="รายละเอียด" class="p-2 border rounded h-24"></textarea>
+    <input type="number" [(ngModel)]="price" placeholder="ราคา" class="p-2 border rounded">
+
+    <div>
+      <label class="block mb-1 text-sm text-gray-600">รูปภาพสินค้า</label>
+      <input type="file" (change)="onFileSelected($event)" class="w-full">
+    </div>
+
+    <button (click)="onSubmit()" class="bg-green-600 text-white py-2 rounded hover:bg-green-700 mt-4">
+      บันทึกสินค้า
+    </button>
+  </div>
+</div>

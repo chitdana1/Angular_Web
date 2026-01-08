@@ -1,0 +1,27 @@
+<div *ngIf="product" class="p-6 max-w-4xl mx-auto bg-white shadow-md rounded-lg mt-10">
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div>
+      <img *ngIf="product.image" [src]="'http://localhost:3000/uploads/' + product.image" class="w-full rounded-lg">
+      <div *ngIf="!product.image" class="h-64 bg-gray-200 flex items-center justify-center text-4xl">📦</div>
+    </div>
+
+    <div>
+      <h1 class="text-3xl font-bold mb-4">{{ product.name }}</h1>
+      <p class="text-gray-600 mb-6">{{ product.description }}</p>
+      <div class="text-2xl text-green-600 font-bold mb-6">{{ product.price | number }} ฿</div>
+      <a routerLink="/" class="border border-gray-300 px-6 py-3 rounded-lg hover:bg-gray-100 mr-4">
+        กลับหน้าแรก
+      </a>
+
+      <button (click)="onDelete()" class="bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-600">
+        ลบสินค้า
+      </button>
+    </div>
+  </div>
+
+</div>
+
+<div *ngIf="!product" class="text-center mt-20 text-gray-500 text-xl">
+  กำลังโหลดข้อมูลสินค้า... ⏳
+</div>

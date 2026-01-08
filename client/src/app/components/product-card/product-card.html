@@ -1,0 +1,28 @@
+<div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200 flex flex-col h-full">
+
+  <div class="h-48 overflow-hidden bg-gray-100 cursor-pointer" >
+    <img
+      *ngIf="product.image"
+      [src]="'http://localhost:3000/uploads/' + product.image"
+      class="w-full h-full object-cover hover:scale-105 transition duration-500"
+    >
+    <div *ngIf="!product.image" class="h-full flex items-center justify-center text-4xl">📦</div>
+  </div>
+
+  <div class="p-4 flex flex-col flex-1">
+    <h3 class="text-lg font-bold text-gray-800 truncate cursor-pointer hover:text-blue-600" [routerLink]="['/product', product._id]">
+      {{ product.name }}
+    </h3>
+    <p class="text-sm text-gray-500 mb-2 line-clamp-2">{{ product.description }}</p>
+
+    <div class="mt-auto flex justify-between items-center">
+      <span class="text-green-600 font-bold text-lg">{{ product.price | number }} ฿</span>
+      <button class="text-sm bg-blue-100 text-blue-700 px-2 py-1 rounded hover:bg-blue-200" [routerLink]="['/product', product._id]">
+        รายละเอียด
+      </button>
+    </div>
+    <div *ngIf="!product" class="text-center mt-10">
+      กำลังโหลดข้อมูล... ⏳
+    </div>
+  </div>
+</div>
